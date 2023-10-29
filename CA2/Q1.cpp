@@ -84,7 +84,7 @@ int main()
     double SMIDTime = std::chrono::duration<double>(endSIMD - startSIMD).count();
     double SerialTime = std::chrono::duration<double>(endSerial - startSerial).count();
     double Speedup = SMIDTime / SerialTime;
-    cout << "Speed up: " << accelerationFactor << endl;
+    cout << "Acceleration: " << 1 / Speedup << endl;
 
     delete[] data;
 
