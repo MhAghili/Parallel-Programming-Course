@@ -37,10 +37,10 @@ int main() {
     int index_parallel;
 
     double start_time_parallel = omp_get_wtime();
-
-    #pragma omp parallel for
+    
+    int i;
+    #pragma omp parallel for private(i)
     for (int i = 0; i < ARRAY_SIZE; i++) {
-        #pragma omp critical
         {
             if (array[i] < min_parallel) {
                 min_parallel = array[i];

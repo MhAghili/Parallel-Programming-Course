@@ -1,22 +1,21 @@
 #include <omp.h>
- 
 #include <stdio.h>
 #include <stdlib.h>
-#include <limits.h> 
+#include <limits.h>
 #include <math.h>
 
-#define FRAME_SIZE 1024
+#define FRAME_SIZE 10000
 
 void calculate_absolute_difference(int frame1[], int frame2[], int result[], int size) {
-    #pragma omp parallel num_threads(4) 
-        #pragma omp for
-        for (int i = 0; i < size; i++) {
-            result[i] = abs(frame1[i] - frame2[i]);
-        }
+    int i;
+    #pragma omp parallel for private(i)
+    for (int i = 0; i < size; i++) {
+        result[i] = abs(frame1[i] - frame2[i]);
+    }
 }
 
-
 int main() {
+
     int frame1[FRAME_SIZE];
     int frame2[FRAME_SIZE];
     int result[FRAME_SIZE];
@@ -26,7 +25,6 @@ int main() {
         frame2[i] = rand();
     }
 
-    // Serial version
     double start_time_serial = omp_get_wtime();
 
     for (int i = 0; i < FRAME_SIZE; i++) {
