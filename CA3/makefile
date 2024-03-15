@@ -16,8 +16,8 @@ Q2: Q2.c
 Q3: Q3.c
 	$(CC) $(XFLAG) $(LDFLAGS) $(CFLAGS) $(LIBS) -lomp Q3.c -o Q3
 
-Q4: Q3.c
-	$(CC) $(XFLAG) $(LDFLAGS) $(CFLAGS) $(LIBS) -lomp Q4.c -o Q4
+Q4: Q4.c
+	$(CC) $(XFLAG) $(LDFLAGS) $(CFLAGS) $(LIBS) -lomp lodepng.c Q4.c -o Q4
 
 
 clean:
