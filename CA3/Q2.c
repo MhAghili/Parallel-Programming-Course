@@ -60,7 +60,7 @@ int main() {
         array[i] = rand();
     }
 
-    // Serial version
+    // Seril version
     double start_time_serial = omp_get_wtime();
 
     double mean_serial = calculate_mean_serial(array, ARRAY_SIZE);
